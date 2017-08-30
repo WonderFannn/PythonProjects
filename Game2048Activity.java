@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by wangfan on 2016/10/27.
+ * Created by wangfan on 2016/10/24.
  */
-public class MainActivity extends Activity {
+public class Game2048Activity extends Activity {
 
     private static int NUMBERROWS = 4;
     private TextView[][] tvCard;
@@ -90,13 +90,7 @@ public class MainActivity extends Activity {
         }
 
         glGameView.setOnTouchListener(new View.OnTouchListener() {
-            private float startX
-                    ,
-                    startY
-                    ,
-                    offsetX
-                    ,
-                    offsetY;
+            private float startX,startY,offsetX,offsetY;
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
@@ -107,7 +101,6 @@ public class MainActivity extends Activity {
                     case MotionEvent.ACTION_UP:
                         offsetX = motionEvent.getX() - startX;
                         offsetY = motionEvent.getY() - startY;
-
                         if (Math.abs(offsetX) > Math.abs(offsetY)) {
                             if (offsetX < -5) {
                                 swipeLeft();
@@ -121,12 +114,10 @@ public class MainActivity extends Activity {
                                 swipeDown();
                             }
                         }
-
                         break;
                 }
                 return true;
             }
-
         });
     }
 
